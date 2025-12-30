@@ -4,7 +4,7 @@ return [
     'judul' => 'Undangan Khitanan',
     'nama_anak' => 'Muhammad Robby Zen',
     'nama_ayah' => 'Bapak Ahmad Muzaeni',
-    'nama_ibu' => 'Ibu Nur Sri Hanyanai',
+    'nama_ibu' => 'Ibu Nur Sri Handayani',
     'hari_tanggal' => 'Sabtu, 16 Januari 2026',
     'waktu' => '09.00 WIB - Selesai',
     'lokasi' => 'Jl Situnggul, RT 10 RW 03, Desa Pesarean, Kec. Adiwerna, Kab. Tegal, Jawa Tengah',

@@ -36,6 +36,10 @@ $wishes = getWishes();
     <!-- Landing Page -->
     <div id="landing" class="landing-page active">
         <div class="landing-content">
+            <div class="foto-wrapper">
+                    <img src="images/foto_robby.jpg" alt="Foto Keluarga" class="foto-keluarga">
+                    <p class="caption-foto">Keluarga Besar <?= $config['nama_ayah'] ?> & <?= $config['nama_ibu'] ?></p>
+                </div>
             <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
             <h1 class="landing-title"><?= $config['judul'] ?></h1>
             <div class="kepada">
@@ -59,20 +63,17 @@ $wishes = getWishes();
         </section>
 
         <!-- Section 2: Nama Anak -->
-        <section class="section-nama">
-            <div class="container">
-                <div class="ornamen-top">❈</div>
-                <p class="pengantar"><?= $config['pengantar'] ?></p>
-                <section class="section-foto">
-                    <div class="container">
-                        <div class="foto-wrapper">
-                            <img src="images/foto_robby.jpg" alt="Foto Keluarga" class="foto-keluarga">
-                        </div>
-                    </div>
-                </section>
-                <h2 class="nama-anak"><?= $config['nama_anak'] ?></h2>
-                <p class="nama-ortu">Putra ke-tiga dari<br><?= $config['nama_ayah'] ?> & <?= $config['nama_ibu'] ?></p>
-                <div class="ornamen-bottom">❈</div>
+        <section class="reveal">
+            <div class="card-minimalis">
+                <img src="images/foto_robby.jpg" alt="Foto Robby" class="foto-anak-side">
+                <div class="info-anak-side">
+                    <h2><?= $config['nama_anak'] ?></h2>
+                    <p>
+                        Putra ke-tiga dari:<br>
+                        <strong>Bapak <?= $config['nama_ayah'] ?></strong><br>
+                        & <strong>Ibu <?= $config['nama_ibu'] ?></strong>
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -86,36 +87,23 @@ $wishes = getWishes();
                 </div>
             </div>
         </section>
+        
 
-        <!-- Section 4: Detail Acara -->
-        <section class="section-acara">
+        <section class="section-acara reveal">
             <div class="container">
                 <h3 class="section-title">Detail Acara</h3>
-                <div class="acara-card">
-                    <div class="acara-item">
-                        <div class="icon">📅</div>
-                        <div class="acara-info">
-                            <strong>Hari & Tanggal</strong>
-                            <p><?= $config['hari_tanggal'] ?></p>
-                        </div>
-                    </div>
-                    <div class="acara-item">
-                        <div class="icon">🕐</div>
-                        <div class="acara-info">
-                            <strong>Waktu</strong>
-                            <p><?= $config['waktu'] ?></p>
-                        </div>
-                    </div>
-                    <div class="acara-item">
-                        <div class="icon">📍</div>
-                        <div class="acara-info">
-                            <strong>Lokasi</strong>
-                            <p><?= $config['lokasi'] ?></p>
-                        </div>
+                
+                <div class="acara-container">
+                    <div class="acara-card-new">
+                        <span class="acara-icon">📅</span>
+                        <h4>Waktu Pelaksanaan</h4>
+                        <p><strong><?= $config['hari_tanggal'] ?></strong></p>
+                        <p><?= $config['waktu'] ?></p>
                     </div>
                 </div>
             </div>
         </section>
+        
 
         <!-- Section 5: Lokasi Google Maps -->
         <section class="section-map">

@@ -419,3 +419,88 @@ section {
         box-shadow: 0 0 30px rgba(0,0,0,0.1);
     }
 }
+/* Container khusus untuk card detail acara */
+.acara-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Style Card Acara Baru */
+.acara-card-new {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('image_11abaa.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 1px solid rgba(46, 125, 50, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.acara-card-new:hover {
+    transform: translateY(-5px);
+}
+
+.acara-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.acara-card-new h4 {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.4rem;
+    color: #2e7d32;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.acara-card-new p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 0;
+}
+/* Card Minimalis (Ngga se-card itu, tapi tetep rapi) */
+.card-minimalis {
+    background: rgba(255, 255, 255, 0.95); /* Putih bersih biar teks tajam */
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Shadow halus */
+    display: flex;
+    align-items: center; /* Vertikal center */
+    gap: 20px; /* Jarak foto & teks */
+}
+
+/* Foto Kotak Estetik */
+.foto-anak-side {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Biar ngga gepeng */
+}
+
+/* Info Teks */
+.info-anak-side {
+    text-align: left;
+}
+
+.info-anak-side h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #2e7d32;
+    margin-bottom: 8px;
+}
+
+.info-anak-side p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #444;
+}
