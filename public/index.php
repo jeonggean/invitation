@@ -30,23 +30,38 @@ $wishes = getWishes();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $config['judul'] ?> - <?= $config['nama_anak'] ?></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Landing Page -->
     <div id="landing" class="landing-page active">
+        <div class="landing-overlay"></div>
         <div class="landing-content">
-            <div class="foto-wrapper">
-                    <img src="images/foto_robby.jpg" alt="Foto Keluarga" class="foto-keluarga">
-                    <p class="caption-foto">Keluarga Besar <?= $config['nama_ayah'] ?> & <?= $config['nama_ibu'] ?></p>
+            <div class="foto-wrapper-landing">
+                <div class="foto-frame">
+                    <img src="images/foto_robby.jpg" alt="Foto Keluarga" class="foto-keluarga-landing">
                 </div>
+                <p class="caption-foto-landing">Keluarga Besar <?= $config['nama_ayah'] ?> & <?= $config['nama_ibu'] ?></p>
+            </div>
             <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
             <h1 class="landing-title"><?= $config['judul'] ?></h1>
             <div class="kepada">
                 <p>Kepada Yth:</p>
                 <h2 class="nama-tamu"><?= $nama_tamu ?></h2>
             </div>
-            <button onclick="bukaUndangan()" class="btn-buka">Buka Undangan</button>
+            <button onclick="bukaUndangan()" class="btn-buka">
+                <span class="btn-text">Buka Undangan</span>
+                <span class="btn-icon">📧</span>
+            </button>
+        </div>
+        <div class="floating-particles">
+            <span class="particle">✨</span>
+            <span class="particle">🌟</span>
+            <span class="particle">💫</span>
+            <span class="particle">⭐</span>
         </div>
     </div>
 
@@ -55,60 +70,73 @@ $wishes = getWishes();
         <!-- Section 1: Foto Keluarga -->
         <section class="section-foto">
             <div class="container">
-                <div class="foto-wrapper">
-                    <img src="images/foto_keluarga.jpg" alt="Foto Keluarga" class="foto-keluarga">
+                <div class="foto-wrapper reveal">
+                    <div class="foto-border-wrapper">
+                        <img src="images/foto_keluarga.jpg" alt="Foto Keluarga" class="foto-keluarga">
+                    </div>
                     <p class="caption-foto">Keluarga Besar <?= $config['nama_ayah'] ?> & <?= $config['nama_ibu'] ?></p>
                 </div>
             </div>
         </section>
 
         <!-- Section 2: Nama Anak -->
-        <section class="reveal">
-            <div class="card-minimalis">
-                <img src="images/foto_robby.jpg" alt="Foto Robby" class="foto-anak-side">
-                <div class="info-anak-side">
-                    <h2><?= $config['nama_anak'] ?></h2>
-                    <p>
-                        Putra ke-tiga dari:<br>
-                        <strong>Bapak <?= $config['nama_ayah'] ?></strong><br>
-                        & <strong>Ibu <?= $config['nama_ibu'] ?></strong>
-                    </p>
+        <section class="section-nama reveal">
+            <div class="container">
+                <div class="card-minimalis">
+                    <div class="foto-anak-wrapper">
+                        <img src="images/foto_robby.jpg" alt="Foto Robby" class="foto-anak-side">
+                        <div class="foto-overlay"></div>
+                    </div>
+                    <div class="info-anak-side">
+                        <div class="ornamen-mini">❈</div>
+                        <h2><?= $config['nama_anak'] ?></h2>
+                        <p>
+                            Putra ke-tiga dari:<br>
+                            Bapak <?= $config['nama_ayah'] ?><br>
+                            & Ibu <?= $config['nama_ibu'] ?>
+                        </p>
+                        <div class="ornamen-mini bottom">❈</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Section 3: Ayat/Doa -->
-        <section class="section-ayat">
+        <section class="section-ayat reveal">
             <div class="container">
                 <div class="ayat-box">
+                    <div class="ayat-ornamen top">☪</div>
                     <p class="ayat-arab"><?= $config['ayat']['teks_arab'] ?></p>
                     <p class="ayat-latin"><?= $config['ayat']['teks_latin'] ?></p>
                     <p class="ayat-keterangan"><?= $config['ayat']['keterangan'] ?></p>
+                    <div class="ayat-ornamen bottom">☪</div>
                 </div>
             </div>
         </section>
-        
 
+        <!-- Section 4: Detail Acara -->
         <section class="section-acara reveal">
             <div class="container">
-                <h3 class="section-title">Detail Acara</h3>
-                
                 <div class="acara-container">
                     <div class="acara-card-new">
-                        <span class="acara-icon">📅</span>
-                        <h4>Waktu Pelaksanaan</h4>
+                        <div class="card-glow"></div>
+                        <h4>Save The Date</h4>
+                        <div class="divider"></div>
                         <p><strong><?= $config['hari_tanggal'] ?></strong></p>
-                        <p><?= $config['waktu'] ?></p>
+                        <p class="waktu-detail"><?= $config['waktu'] ?></p>
                     </div>
                 </div>
             </div>
         </section>
-        
 
         <!-- Section 5: Lokasi Google Maps -->
-        <section class="section-map">
+        <section class="section-map reveal">
             <div class="container">
-                <h3 class="section-title">Lokasi Acara</h3>
+                <h3 class="section-title">
+                    <span class="title-ornamen">❈</span>
+                    Lokasi Acara
+                    <span class="title-ornamen">❈</span>
+                </h3>
                 <div class="map-wrapper">
                     <iframe 
                         src="<?= $config['google_maps_embed'] ?>" 
@@ -120,39 +148,57 @@ $wishes = getWishes();
                     </iframe>
                 </div>
                 <a href="<?= $config['google_maps_link'] ?>" target="_blank" class="btn-map">
-                    Buka di Google Maps
+                    <span>Buka di Google Maps</span>
                 </a>
             </div>
         </section>
 
         <!-- Section 6: Wishes -->
-        <section class="section-wishes" id="wishes">
+        <section class="section-wishes reveal" id="wishes">
             <div class="container">
-                <h3 class="section-title">Ucapan & Doa</h3>
+                <h3 class="section-title">
+                    <span class="title-ornamen">❈</span>
+                    Ucapan & Doa
+                    <span class="title-ornamen">❈</span>
+                </h3>
                 
                 <!-- Form -->
                 <div class="wish-form-wrapper">
                     <form method="POST" class="wish-form">
                         <div class="form-group">
-                            <input type="text" name="nama" placeholder="Nama Anda" required maxlength="255">
+                            <label for="nama">
+                                <span class="label-icon">👤</span> Nama Anda
+                            </label>
+                            <input type="text" name="nama" id="nama" placeholder="Masukkan nama Anda" required maxlength="255">
                         </div>
                         <div class="form-group">
-                            <textarea name="pesan" placeholder="Tuliskan ucapan dan doa Anda..." required rows="4"></textarea>
+                            <label for="pesan">
+                                <span class="label-icon">💬</span> Ucapan & Doa
+                            </label>
+                            <textarea name="pesan" id="pesan" placeholder="Tuliskan ucapan dan doa Anda..." required rows="4"></textarea>
                         </div>
-                        <button type="submit" name="submit_wish" class="btn-submit">Kirim Ucapan</button>
+                        <button type="submit" name="submit_wish" class="btn-submit">
+                            <span>Kirim Ucapan</span>
+                            <span class="btn-submit-icon">✉️</span>
+                        </button>
                     </form>
                 </div>
 
                 <!-- Daftar Ucapan -->
                 <div class="wishes-list">
                     <?php if (empty($wishes)): ?>
-                        <p class="no-wishes">Belum ada ucapan. Jadilah yang pertama!</p>
+                        <div class="no-wishes">
+                            <span class="no-wishes-icon">💭</span>
+                            <p>Belum ada ucapan. Jadilah yang pertama!</p>
+                        </div>
                     <?php else: ?>
                         <?php foreach ($wishes as $wish): ?>
                             <div class="wish-item">
-                                <strong class="wish-nama"><?= htmlspecialchars($wish['nama_pengirim']) ?></strong>
+                                <div class="wish-header">
+                                    <span class="wish-avatar">👤</span>
+                                    <strong class="wish-nama"><?= htmlspecialchars($wish['nama_pengirim']) ?></strong>
+                                </div>
                                 <p class="wish-pesan"><?= nl2br(htmlspecialchars($wish['pesan'])) ?></p>
-                                <span class="wish-time"><?= date('d M Y, H:i', strtotime($wish['created_at'])) ?></span>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -162,8 +208,10 @@ $wishes = getWishes();
 
         <!-- Footer -->
         <footer class="footer">
-            <p>بَارَكَ اللَّهُ</p>
+            <div class="footer-ornamen">✦ ✧ ✦</div>
+            <p class="footer-arab">بَارَكَ اللَّهُ</p>
             <p class="footer-text">Terima kasih atas doa dan ucapannya</p>
+            <div class="footer-ornamen bottom">✦ ✧ ✦</div>
         </footer>
     </div>
 

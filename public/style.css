@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* ===== Reset & Base ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,10 +6,11 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f5f5;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
     color: #2d2d2d;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
@@ -18,83 +19,211 @@ body {
     padding: 0 20px;
 }
 
-/* Landing Page */
+/* ===== Landing Page ===== */
 .landing-page {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, #2e7d32 0%, #66bb6a 100%);
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     color: white;
     text-align: center;
+    overflow: hidden;
 }
 
 .landing-page.active {
     display: flex;
 }
 
+.landing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent);
+    animation: pulse 4s ease-in-out infinite;
+}
+
 .landing-content {
+    position: relative;
     padding: 30px;
     animation: fadeInUp 1s ease;
+    z-index: 10;
+}
+
+.foto-wrapper-landing {
+    margin-bottom: 30px;
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.foto-frame {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.foto-frame:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.foto-keluarga-landing {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.4);
+}
+
+.caption-foto-landing {
+    font-size: 13px;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
 }
 
 .bismillah {
-    font-size: 22px;
-    margin-bottom: 30px;
+    font-size: 24px;
+    margin-bottom: 25px;
     font-weight: 300;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    animation: fadeIn 1.5s ease;
 }
 
 .landing-title {
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
+    font-family: 'Crimson Text', serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    animation: fadeIn 2s ease;
 }
 
 .kepada {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
+    animation: fadeIn 2.5s ease;
 }
 
 .kepada p {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 10px;
-    opacity: 0.9;
+    opacity: 0.95;
+    letter-spacing: 1px;
 }
 
 .nama-tamu {
-    font-size: 22px;
-    font-weight: 600;
-    margin: 10px 0;
-    padding: 10px 20px;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+    font-family: 'Great Vibes', cursive;
+    font-size: 26px;
+    font-weight: 400;
+    margin: 15px 0;
+    padding: 15px 25px;
+    border-top: 2px solid rgba(255,255,255,0.4);
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .btn-buka {
+    position: relative;
     background: white;
     color: #2e7d32;
     border: none;
-    padding: 14px 40px;
+    padding: 16px 45px;
     font-size: 16px;
-    border-radius: 30px;
-    cursor: pointer;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: all 0.3s;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-buka::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(46,125,50,0.1), transparent);
+    transition: left 0.5s;
+}
+
+.btn-buka:hover::before {
+    left: 100%;
 }
 
 .btn-buka:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+    background: linear-gradient(135deg, #fff 0%, #f1f8e9 100%);
 }
 
-/* Main Content */
+.btn-buka:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.btn-icon {
+    font-size: 20px;
+    animation: bounce 2s infinite;
+}
+
+/* Floating Particles */
+.floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.6;
+    animation: float 6s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation-delay: 1.5s;
+}
+
+.particle:nth-child(3) {
+    top: 40%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+.particle:nth-child(4) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4.5s;
+}
+
+/* ===== Main Content ===== */
 .main-content {
     max-width: 390px;
     margin: 0 auto;
@@ -102,6 +231,7 @@ body {
     min-height: 100vh;
     opacity: 0;
     transition: opacity 0.5s;
+    box-shadow: 0 0 50px rgba(0,0,0,0.1);
 }
 
 .main-content.show {
@@ -109,299 +239,720 @@ body {
 }
 
 section {
-    padding: 40px 0;
+    padding: 50px 0;
+    position: relative;
 }
 
 .section-title {
-    font-size: 24px;
+    font-family: 'Crimson Text', serif;
+    font-size: 28px;
     color: #2e7d32;
     text-align: center;
-    margin-bottom: 25px;
-    font-weight: 600;
+    margin-bottom: 35px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 
-/* Section Foto */
+.title-ornamen {
+    font-size: 20px;
+    margin: 0 15px;
+    color: #66bb6a;
+    animation: rotate 3s linear infinite;
+    display: inline-block;
+}
+
+/* ===== Section Foto ===== */
 .section-foto {
     padding-top: 30px;
-    background: white;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
 }
 
 .foto-wrapper {
     text-align: center;
+    padding: 20px;
+}
+
+.foto-border-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(46,125,50,0.3);
+    transition: all 0.4s ease;
+}
+
+.foto-border-wrapper:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(46,125,50,0.4);
 }
 
 .foto-keluarga {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-bottom: 15px;
+    border-radius: 15px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.foto-border-wrapper:hover .foto-keluarga {
+    transform: scale(1.05);
 }
 
 .caption-foto {
     font-size: 14px;
     color: #666;
     font-style: italic;
+    margin-top: 20px;
+    animation: fadeIn 1s ease;
 }
 
-/* Section Nama */
+/* ===== Section Nama (Card Minimalis) ===== */
 .section-nama {
-    background: linear-gradient(to bottom, #e8f5e9, white);
-    text-align: center;
+    background: linear-gradient(135deg, #f1f8e9 0%, #ffffff 100%);
 }
 
-.ornamen-top, .ornamen-bottom {
-    font-size: 24px;
+.card-minimalis {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-minimalis::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(46,125,50,0.05), transparent);
+    transition: left 0.6s;
+}
+
+.card-minimalis:hover::before {
+    left: 100%;
+}
+
+.card-minimalis:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(46,125,50,0.2);
+}
+
+.foto-anak-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.foto-anak-side {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.foto-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(46,125,50,0.3), rgba(102,187,106,0.3));
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 3;
+}
+
+.card-minimalis:hover .foto-anak-side {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.card-minimalis:hover .foto-overlay {
+    opacity: 1;
+}
+
+.info-anak-side {
+    text-align: left;
+    position: relative;
+}
+
+.ornamen-mini {
+    font-size: 16px;
+    color: #66bb6a;
+    margin-bottom: 5px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.ornamen-mini.bottom {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.info-anak-side h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
     color: #2e7d32;
-    margin: 15px 0;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
 }
 
-.pengantar {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 25px;
+.card-minimalis:hover .info-anak-side h2 {
+    color: #1b5e20;
+}
+
+.info-anak-side p {
+    font-size: 0.9rem;
     line-height: 1.7;
+    color: #555;
 }
 
-.nama-anak {
-    font-size: 28px;
+.info-anak-side strong {
     color: #2e7d32;
-    font-weight: 700;
-    margin: 20px 0;
+    font-weight: 600;
 }
 
-.nama-ortu {
-    font-size: 15px;
-    color: #666;
-    margin-top: 15px;
-}
-
-/* Section Ayat */
+/* ===== Section Ayat ===== */
 .section-ayat {
-    background: #f9f9f9;
+    background: linear-gradient(to bottom, #f9f9f9, #ffffff);
 }
 
 .ayat-box {
     background: white;
-    padding: 25px;
-    border-radius: 10px;
-    border-left: 4px solid #2e7d32;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #e8f5e9;
+    box-shadow: 0 10px 40px rgba(46,125,50,0.1);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.ayat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(46,125,50,0.2);
+    border-color: #66bb6a;
+}
+
+.ayat-ornamen {
+    text-align: center;
+    font-size: 30px;
+    color: #66bb6a;
+    margin-bottom: 15px;
+    animation: rotate 4s linear infinite;
+}
+
+.ayat-ornamen.bottom {
+    margin-top: 15px;
+    margin-bottom: 0;
 }
 
 .ayat-arab {
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
-    margin-bottom: 15px;
-    line-height: 1.8;
+    margin-bottom: 20px;
+    line-height: 2;
     color: #2e7d32;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.ayat-box:hover .ayat-arab {
+    color: #1b5e20;
 }
 
 .ayat-latin {
     font-size: 15px;
     font-style: italic;
-    color: #555;
+    color: #666;
     text-align: center;
-    margin-bottom: 10px;
-    line-height: 1.6;
+    margin-bottom: 15px;
+    line-height: 1.8;
 }
 
 .ayat-keterangan {
     font-size: 13px;
-    color: #888;
+    color: #999;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-/* Section Acara */
+/* ===== Section Acara ===== */
 .section-acara {
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
 }
 
-.acara-card {
-    background: #f8f8f8;
-    border-radius: 10px;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-}
-
-.acara-item {
+.acara-container {
     display: flex;
-    align-items: flex-start;
-    padding: 15px 0;
-    border-bottom: 1px solid #e8e8e8;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px 0;
 }
 
-.acara-item:last-child {
-    border-bottom: none;
+.acara-card-new {
+    position: relative;
+    background: white;
+    border-radius: 25px;
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border: 2px solid #e8f5e9;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
 }
 
-.acara-item .icon {
-    font-size: 24px;
-    margin-right: 15px;
-    min-width: 30px;
+.card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(102,187,106,0.1), transparent);
+    transform: scale(0);
+    transition: transform 0.6s ease;
 }
 
-.acara-info strong {
+.acara-card-new:hover .card-glow {
+    transform: scale(1);
+}
+
+.acara-card-new:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(46,125,50,0.25);
+    border-color: #66bb6a;
+}
+
+.acara-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
     display: block;
+    animation: bounce 2s infinite;
+    transition: transform 0.3s ease;
+}
+
+.acara-card-new:hover .acara-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.acara-card-new h4 {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.5rem;
     color: #2e7d32;
-    margin-bottom: 5px;
-    font-size: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    transition: color 0.3s ease;
 }
 
-.acara-info p {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
+.acara-card-new:hover h4 {
+    color: #1b5e20;
 }
 
-/* Section Map */
+.divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #66bb6a, transparent);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.acara-card-new p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+.acara-card-new strong {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.waktu-detail {
+    font-size: 0.95rem !important;
+    color: #666 !important;
+}
+
+/* ===== Section Map ===== */
 .section-map {
-    background: #f9f9f9;
+    background: linear-gradient(to bottom, #f1f8e9, #ffffff);
 }
 
 .map-wrapper {
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    margin-bottom: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.map-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(46,125,50,0.2);
 }
 
 .btn-map {
-    display: block;
-    text-align: center;
-    background: #2e7d32;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #2e7d32, #43a047);
     color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
+    padding: 15px 35px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: background 0.3s;
+    font-size: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 25px rgba(46,125,50,0.3);
+    position: flex;
+    overflow: hidden;
+}
+
+.btn-map::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-map:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-map:hover {
-    background: #1b5e20;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 35px rgba(46,125,50,0.4);
 }
 
-/* Section Wishes */
+.btn-map:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* ===== Section Wishes ===== */
 .section-wishes {
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
 }
 
 .wish-form-wrapper {
-    background: #f8f8f8;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    border: 2px solid #e8f5e9;
+    transition: all 0.4s ease;
+}
+
+.wish-form-wrapper:hover {
+    box-shadow: 0 15px 50px rgba(46,125,50,0.15);
+    border-color: #66bb6a;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 8px;
+}
+
+.label-icon {
+    font-size: 16px;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
     font-size: 14px;
     font-family: inherit;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
+    background: #fafafa;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: #2e7d32;
+    background: white;
+    box-shadow: 0 5px 20px rgba(46,125,50,0.1);
+    transform: translateY(-2px);
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 120px;
 }
 
 .btn-submit {
     width: 100%;
-    background: #2e7d32;
+    background: linear-gradient(135deg, #2e7d32, #43a047);
     color: white;
     border: none;
-    padding: 13px;
-    border-radius: 6px;
-    font-size: 15px;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 25px rgba(46,125,50,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-submit:hover::before {
+    width: 400px;
+    height: 400px;
 }
 
 .btn-submit:hover {
-    background: #1b5e20;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 35px rgba(46,125,50,0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(-1px) scale(1);
+}
+
+.btn-submit-icon {
+    font-size: 18px;
 }
 
 /* Wishes List */
 .wishes-list {
-    max-height: 600px;
+    max-height: 700px;
     overflow-y: auto;
+    padding-right: 5px;
+}
+
+.wishes-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wishes-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.wishes-list::-webkit-scrollbar-thumb {
+    background: #66bb6a;
+    border-radius: 10px;
+}
+
+.wishes-list::-webkit-scrollbar-thumb:hover {
+    background: #2e7d32;
 }
 
 .no-wishes {
     text-align: center;
+    padding: 50px 20px;
+    background: white;
+    border-radius: 15px;
+    border: 2px dashed #e0e0e0;
+}
+
+.no-wishes-icon {
+    font-size: 50px;
+    display: block;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.no-wishes p {
     color: #999;
-    padding: 30px;
     font-style: italic;
 }
 
 .wish-item {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border-left: 3px solid #2e7d32;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid #2e7d32;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.wish-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102,187,106,0.05), transparent);
+    transition: left 0.6s;
+}
+
+.wish-item:hover::before {
+    left: 100%;
+}
+
+.wish-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 30px rgba(46,125,50,0.15);
+    border-left-width: 6px;
+}
+
+.wish-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.wish-avatar {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #66bb6a, #2e7d32);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: 0 3px 10px rgba(46,125,50,0.2);
 }
 
 .wish-nama {
     color: #2e7d32;
     font-size: 15px;
-    display: block;
-    margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .wish-pesan {
     font-size: 14px;
     color: #555;
-    line-height: 1.6;
-    margin-bottom: 8px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-left: 45px;
 }
 
 .wish-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-size: 12px;
     color: #999;
+    padding-left: 45px;
 }
 
-/* Footer */
+.time-icon {
+    font-size: 14px;
+}
+
+/* ===== Footer ===== */
 .footer {
-    background: #2e7d32;
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
     color: white;
     text-align: center;
-    padding: 30px 20px;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.footer p:first-child {
-    font-size: 22px;
-    margin-bottom: 10px;
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.1), transparent);
+}
+
+.footer-ornamen {
+    font-size: 20px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+    letter-spacing: 10px;
+}
+
+.footer-ornamen.bottom {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.footer-arab {
+    font-size: 26px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: relative;
 }
 
 .footer-text {
     font-size: 14px;
-    opacity: 0.9;
+    opacity: 0.95;
+    letter-spacing: 0.5px;
+    position: relative;
 }
 
-/* Animations */
+/* ===== Reveal Animation ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Keyframe Animations ===== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
@@ -409,98 +960,61 @@ section {
     }
 }
 
-/* Responsive untuk Desktop */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-40px) translateX(-10px);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translateY(-20px) translateX(10px);
+        opacity: 0.8;
+    }
+}
+
+/* ===== Responsive Desktop ===== */
 @media (min-width: 768px) {
     body {
-        background: #e0e0e0;
+        background: linear-gradient(135deg, #c8e6c9 0%, #e8f5e9 100%);
     }
     
     .main-content {
-        box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        box-shadow: 0 0 50px rgba(0,0,0,0.15);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        overflow: hidden;
     }
-}
-/* Container khusus untuk card detail acara */
-.acara-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px 0;
-}
-
-/* Style Card Acara Baru */
-.acara-card-new {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('image_11abaa.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-    padding: 30px 20px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    border: 1px solid rgba(46, 125, 50, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.acara-card-new:hover {
-    transform: translateY(-5px);
-}
-
-.acara-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.acara-card-new h4 {
-    font-family: 'Crimson Text', serif;
-    font-size: 1.4rem;
-    color: #2e7d32;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.acara-card-new p {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.5;
-    margin: 0;
-}
-/* Card Minimalis (Ngga se-card itu, tapi tetep rapi) */
-.card-minimalis {
-    background: rgba(255, 255, 255, 0.95); /* Putih bersih biar teks tajam */
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Shadow halus */
-    display: flex;
-    align-items: center; /* Vertikal center */
-    gap: 20px; /* Jarak foto & teks */
-}
-
-/* Foto Kotak Estetik */
-.foto-anak-side {
-    width: 120px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-    flex-shrink: 0; /* Biar ngga gepeng */
-}
-
-/* Info Teks */
-.info-anak-side {
-    text-align: left;
-}
-
-.info-anak-side h2 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2rem;
-    color: #2e7d32;
-    margin-bottom: 8px;
-}
-
-.info-anak-side p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #444;
 }
