@@ -1,0 +1,421 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    color: #2d2d2d;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Landing Page */
+.landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #2e7d32 0%, #66bb6a 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    color: white;
+    text-align: center;
+}
+
+.landing-page.active {
+    display: flex;
+}
+
+.landing-content {
+    padding: 30px;
+    animation: fadeInUp 1s ease;
+}
+
+.bismillah {
+    font-size: 22px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.landing-title {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.kepada {
+    margin-bottom: 40px;
+}
+
+.kepada p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.nama-tamu {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-buka {
+    background: white;
+    color: #2e7d32;
+    border: none;
+    padding: 14px 40px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.btn-buka:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Main Content */
+.main-content {
+    max-width: 390px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.main-content.show {
+    opacity: 1;
+}
+
+section {
+    padding: 40px 0;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Section Foto */
+.section-foto {
+    padding-top: 30px;
+    background: white;
+}
+
+.foto-wrapper {
+    text-align: center;
+}
+
+.foto-keluarga {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.caption-foto {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Section Nama */
+.section-nama {
+    background: linear-gradient(to bottom, #e8f5e9, white);
+    text-align: center;
+}
+
+.ornamen-top, .ornamen-bottom {
+    font-size: 24px;
+    color: #2e7d32;
+    margin: 15px 0;
+}
+
+.pengantar {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.nama-anak {
+    font-size: 28px;
+    color: #2e7d32;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.nama-ortu {
+    font-size: 15px;
+    color: #666;
+    margin-top: 15px;
+}
+
+/* Section Ayat */
+.section-ayat {
+    background: #f9f9f9;
+}
+
+.ayat-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #2e7d32;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.ayat-arab {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: #2e7d32;
+}
+
+.ayat-latin {
+    font-size: 15px;
+    font-style: italic;
+    color: #555;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.ayat-keterangan {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Section Acara */
+.section-acara {
+    background: white;
+}
+
+.acara-card {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.acara-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.acara-item:last-child {
+    border-bottom: none;
+}
+
+.acara-item .icon {
+    font-size: 24px;
+    margin-right: 15px;
+    min-width: 30px;
+}
+
+.acara-info strong {
+    display: block;
+    color: #2e7d32;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.acara-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Section Map */
+.section-map {
+    background: #f9f9f9;
+}
+
+.map-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.btn-map {
+    display: block;
+    text-align: center;
+    background: #2e7d32;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-map:hover {
+    background: #1b5e20;
+}
+
+/* Section Wishes */
+.section-wishes {
+    background: white;
+}
+
+.wish-form-wrapper {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2e7d32;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-submit {
+    width: 100%;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background: #1b5e20;
+}
+
+/* Wishes List */
+.wishes-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.no-wishes {
+    text-align: center;
+    color: #999;
+    padding: 30px;
+    font-style: italic;
+}
+
+.wish-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 3px solid #2e7d32;
+}
+
+.wish-nama {
+    color: #2e7d32;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.wish-pesan {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.wish-time {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Footer */
+.footer {
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer p:first-child {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive untuk Desktop */
+@media (min-width: 768px) {
+    body {
+        background: #e0e0e0;
+    }
+    
+    .main-content {
+        box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+}
