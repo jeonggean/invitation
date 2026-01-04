@@ -92,8 +92,8 @@ $wishes = getWishes();
                         <h2><?= $config['nama_anak'] ?></h2>
                         <p>
                             Putra ke-tiga dari:<br>
-                            Bapak <?= $config['nama_ayah'] ?><br>
-                            & Ibu <?= $config['nama_ibu'] ?>
+                            <?= $config['nama_ayah'] ?>
+                            & <br> <?= $config['nama_ibu'] ?>
                         </p>
                         <div class="ornamen-mini bottom">❈</div>
                     </div>
@@ -120,9 +120,9 @@ $wishes = getWishes();
                 <div class="acara-container">
                     <div class="acara-card-new">
                         <div class="card-glow"></div>
-                        <h4>Save The Date</h4>
+                        <p>Save The Date</p>
                         <div class="divider"></div>
-                        <p><strong><?= $config['hari_tanggal'] ?></strong></p>
+                        <h4><strong><?= $config['hari_tanggal'] ?></strong></h4>
                         <p class="waktu-detail"><?= $config['waktu'] ?></p>
                     </div>
                 </div>
